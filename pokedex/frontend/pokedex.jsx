@@ -1,9 +1,18 @@
+//import React and ReactDOM
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+//necessary for page
+import configureStore from './store/store.js';
+import Root from './components/root';
+import { Hashrouter, Route } from 'react-router-dom';
+
+//testing
 import { receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions';
 import { fetchAllPokemon } from './util/api_util';
-import configureStore from './store/store.js';
 import selectAllPokemon from './reducers/selectors.js';
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.getElementById('root');
@@ -20,5 +29,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //
 
-  ReactDOM.render(<h1>Pokedex</h1>, rootEl);
+  ReactDOM.render(<Root store={store}/>, rootEl);
 });
